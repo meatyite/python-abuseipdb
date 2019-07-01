@@ -2,6 +2,9 @@ import requests
 import json
 
 
+# TODO: Make the function names PEP8 complaint (lower case letters with underscores separating the words)
+
+
 class ReportCategories:
     fraud_orders = 3
     ddos = 4
