@@ -2,7 +2,7 @@ from abuseipdb import *
 
 ipdb = AbuseIPDB('api key')
 
-ip_check = ipdb.Check('31.17.27.96')
+ip_check = ipdb.check('31.17.27.96')
 
 print("----------")
 print("IP Address: " + ip_check.ipAddress)

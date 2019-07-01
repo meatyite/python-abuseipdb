@@ -2,9 +2,6 @@ import requests
 import json
 
 
-# TODO: Make the function names PEP8 complaint (lower case letters with underscores separating the words)
-
-
 class ReportCategories:
     fraud_orders = 3
     ddos = 4
@@ -116,7 +113,7 @@ class AbuseIPDB:
     def __init__(self, apikey):
         self.apikey = apikey
 
-    def Report(self, ip, comment="", categories=[]):
+    def report(self, ip, comment="", categories=[]):
         report_json = requests.post(
             'https://api.abuseipdb.com/api/v2/report',
             headers={
@@ -139,7 +136,7 @@ class AbuseIPDB:
                 abuseConfidenceScore=report_json['data']['abuseConfidenceScore']
             )
 
-    def Check(self, ipAddress, maxAgeInDays=90):
+    def check(self, ipAddress, maxAgeInDays=90):
         check_json = requests.get(
             'https://api.abuseipdb.com/api/v2/check',
             headers={
@@ -186,7 +183,7 @@ class AbuseIPDB:
                 reports=reports
             )
 
-    def GetBlacklistedIPs(self, countMinimum=15, maxAgeInDays=60, confidenceMinimum=90):
+    def get_blacklisted_ips(self, countMinimum=15, maxAgeInDays=60, confidenceMinimum=90):
         blacklisted_ips = []
 
         blacklisted_ip_json = requests.get(
@@ -217,7 +214,7 @@ class AbuseIPDB:
                 )
             return blacklisted_ips
 
-    def CheckBlock(self, network, maxAgeInDays=15):
+    def checkblock(self, network, maxAgeInDays=15):
         checkblock_json = requests.get(
             'https://api.abuseipdb.com/api/v2/check-block',
             headers={
