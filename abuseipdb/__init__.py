@@ -102,10 +102,11 @@ class NewReport:
 
 class BlacklistedIP:
 
-    def __init__(self, ipAddress, totalReports, abuseConfidenceScore):
+    def __init__(self, ipAddress, countryCode, abuseConfidenceScore, lastReportedAt):
         self.ipAddress = ipAddress
-        self.totalReports = totalReports
+        self.countryCode = countryCode
         self.abuseConfidenceScore = abuseConfidenceScore
+        self.lastReportedAt = lastReportedAt
 
 
 class AbuseIPDB:
@@ -208,8 +209,9 @@ class AbuseIPDB:
                 blacklisted_ips.append(
                     BlacklistedIP(
                         ipAddress=d['ipAddress'],
-                        totalReports=d['totalReports'],
-                        abuseConfidenceScore=d['abuseConfidenceScore']
+                        countryCode=d['countryCode'],
+                        abuseConfidenceScore=d['abuseConfidenceScore'],
+                        lastReportedAt=d['lastReportedAt']
                     )
                 )
             return blacklisted_ips
