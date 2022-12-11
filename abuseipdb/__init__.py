@@ -146,7 +146,7 @@ class AbuseIPDB:
             params={
                 'ipAddress': ipAddress,
                 'verbose': '',
-                'maxAgeInDays': 90
+                'maxAgeInDays': maxAgeInDays
             }
         ).content.decode()
         check_json = json.loads(check_json)
